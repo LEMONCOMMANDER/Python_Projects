@@ -55,7 +55,7 @@ Part 2 | coockie clicker website -  https://orteil.dashnet.org/cookieclicker/
 status_count = 0
 
 #sets selenium details
-service = Service(executable_path="/Users/lemonlord/Documents/Code_Stuff/Selenium_Web_Drivers/chromedriver")
+service = Service(executable_path=r'C:\Users\jibji\Documents\Code_Stuff\Python_Projects\chromedriver.exe')
 driver = webdriver.Chrome(service=service)
 driver.get('https://orteil.dashnet.org/cookieclicker/')
 
@@ -72,6 +72,8 @@ upgrade_x_name = "product" #clicking on the div itself
 #a function to add a wait and search for condition - the user can call this and pass the necessary information for any type of element
 def condition_wait(search_type, value,  fail_command="exit"):
     global status_count
+    print("ST: " + search_type)
+    print("val: " + value)
     try:
         WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((getattr(By, search_type), value))
